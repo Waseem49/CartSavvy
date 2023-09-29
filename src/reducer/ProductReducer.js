@@ -1,0 +1,12 @@
+const reducerfunc = (state, action) => {
+  switch (action.type) {
+    case "FETCH_SUCCESS":
+      return { ...state, products: [...state.products, ...action.payload] };
+    case "ADDTOCART":
+      return { ...state, cart: [...state.cart, action.payload] };
+    default:
+      return state;
+  }
+};
+
+export { reducerfunc };

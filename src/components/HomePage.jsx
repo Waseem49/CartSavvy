@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import useFetch from "../hooks/useFetch";
-import { Product } from "./Product";
+import { Product } from "../components/Product";
+import { Mycontext } from "../context/ProductContext";
 
 const HomePage = () => {
-  const { data, isLoading, error } = useFetch(
-    "https://fakestoreapi.com/products"
-  );
+  const { state } = useContext(Mycontext);
+  console.log(state);
   return (
     <>
       <div
@@ -16,7 +16,7 @@ const HomePage = () => {
           margin: "auto",
           width: "80%",
         }}>
-        {data?.map((el, i) => (
+        {state?.products?.map((el, i) => (
           <div key={i}>
             <Product {...el} />
           </div>
