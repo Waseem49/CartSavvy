@@ -1,5 +1,4 @@
-import { createContext, useEffect, useReducer, useState } from "react";
-import useFetch from "../hooks/useFetch";
+import { createContext, useEffect, useReducer } from "react";
 import { reducerfunc } from "../reducer/ProductReducer";
 
 export const Mycontext = createContext();
@@ -14,7 +13,6 @@ export const ContextProvider = ({ children }) => {
     try {
       const res = await fetch("https://mock-api-6jin.onrender.com/products");
       const json = await res.json();
-      console.log(json);
       dispatch({ type: "FETCH_SUCCESS", payload: json });
     } catch (error) {
       console.log(error);
@@ -23,7 +21,6 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(state);
   return (
     <Mycontext.Provider value={{ state, dispatch }}>
       {children}

@@ -1,11 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import useFetch from "../hooks/useFetch";
 import { Product } from "../components/Product";
 import { Mycontext } from "../context/ProductContext";
 
 const HomePage = () => {
   const { state } = useContext(Mycontext);
-  console.log(state);
   return (
     <>
       <div
