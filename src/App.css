@@ -110,3 +110,36 @@
     opacity: 1;
   }
 }
+
+/* CART */
+.cart
+.cartitem img {
+  width: 100px;
+  height: 100px;
+}
+.cartitem > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2rem;
+}
+.cartitem > div > h3 {
+  margin: auto;
+}
+.cartitem > div > div {
+  padding: 0 1rem;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+/*  <div className="cartitem">
+      <img src={el.thumbnail} alt="alt" />
+      <div>
+        <h3>{el.title.substring(0, 18)}</h3>
+        <div>
+          <h4>Price: ${el.price}</h4>
+          <button>Remove</button>
+        </div>
+      </div>
+    </div>
+ */
