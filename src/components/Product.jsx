@@ -5,8 +5,7 @@ import axios from "axios";
 import { Mycontext } from "../context/ProductContext";
 
 export const Product = (product) => {
-  const { id, thumbnail, price, title, skeleton } = product;
-  console.log(skeleton);
+  const { id, thumbnail, price, title } = product;
   const { dispatch, state } = useContext(Mycontext);
 
   const addToCart = async () => {

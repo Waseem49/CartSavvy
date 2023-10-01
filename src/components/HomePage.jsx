@@ -16,10 +16,7 @@ const HomePage = () => {
         }}>
         {state?.products?.map((el, i) => (
           <div key={i}>
-            <Product
-              {...el}
-              skeleton={state.products.length === 0 ? "skeleton" : ""}
-            />
+            <Product {...el} />
           </div>
         ))}
       </div>
