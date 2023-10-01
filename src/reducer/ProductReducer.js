@@ -3,7 +3,9 @@ const reducerfunc = (state, action) => {
     case "FETCH_SUCCESS":
       return { ...state, products: [...state.products, ...action.payload] };
     case "ADDTOCART":
-      return { ...state, cart: [...state.cart, action.payload] };
+      return { ...state, cart: [...state.cart, ...action.payload] };
+    case "CARTLENGTH":
+      return { ...state, cartlength: action.payload };
     default:
       return state;
   }

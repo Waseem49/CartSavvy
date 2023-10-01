@@ -1,25 +1,25 @@
 import React, { useContext } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { Mycontext } from "../context/ProductContext";
 
 export const Product = (product) => {
-  const { id, thumbnail, price, rating, title } = product;
-  const { dispatch } = useContext(Mycontext);
+  const { id, thumbnail, price, title, skeleton } = product;
+  console.log(skeleton);
+  const { dispatch, state } = useContext(Mycontext);
 
   const addToCart = async () => {
-    const cartitems = await axios.get(
-      "https://mock-api-6jin.onrender.com/cart"
-    );
-    const filteritem = cartitems.data.filter((el) => el.id === id);
+    const filteritem = state.cart.filter((el) => el.id === id);
+
     if (filteritem.length === 0) {
       try {
-        dispatch({ type: "ADDTOCART", payload: product });
+        dispatch({ type: "ADDTOCART", payload: [product] });
         const response = await axios.post(
           "https://mock-api-6jin.onrender.com/cart",
           product
         );
+        dispatch({ type: "CARTLENGTH", payload: ++state.cart.length });
         toast("Product added to cart successfully", {
           position: "bottom-right",
           autoClose: 2500,
@@ -61,7 +61,7 @@ export const Product = (product) => {
       <div>
         <div>
           <img src={thumbnail} alt="alt" />
-          <h3>{title}</h3>
+          <h3>{title.substring(0, 30)}</h3>
           <h4>Price: ${price}</h4>
         </div>
         <button onClick={addToCart}>Add to Cart</button>
@@ -69,25 +69,3 @@ export const Product = (product) => {
     </div>
   );
 };
-
-// Dispatch action to add to cart
-// dispatch({ type: "ADDTOCART", payload: product });
-//  Send a POST request to the specified URL
-// fetch("https://mock-api-6jin.onrender.com/cart", {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-//   body: JSON.stringify(product),
-// })
-//   .then((response) => {
-//     if (response.ok) {
-//       dispatch({ type: "ADDTOCART", payload: product });
-//       console.log("Product added to cart successfully.");
-//     } else {
-//       console.error("Failed to add product to cart.");
-//     }
-//   })
-//   .catch((error) => {
-//     console.error("Error while adding product to cart:", error);
-//   });

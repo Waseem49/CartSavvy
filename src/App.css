@@ -55,3 +55,58 @@
 #product button:hover {
   background-color: #e15a20; /* Hover background color (customize as needed) */
 }
+
+/* SKELOTON EFFEC */
+/* Skeloton.css */
+
+.skeleton-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+}
+
+.skeleton-product {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 16px;
+  width: 300px;
+  height: 400px;
+  margin: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: skeleton-fade 1s ease-in-out infinite alternate;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.skeleton-text {
+  background-color: #e0e0e0;
+  height: 16px;
+  width: 80%;
+  margin-bottom: 8px;
+}
+
+.skeleton-button {
+  background-color: #e0e0e0;
+  height: 32px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  animation: skeleton-fade 1s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton-fade {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}

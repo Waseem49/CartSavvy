@@ -1,7 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import "./App.css";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { ContextProvider } from "./context/ProductContext";
+import Skeloton from "./components/Skeloton";
 
 const Navbar = lazy(() => import("./components/Navbar"));
 const HomePage = lazy(() => import("./components/HomePage"));
@@ -11,7 +12,7 @@ function App() {
     <>
       <ContextProvider>
         <Navbar />
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<Skeloton />}>
           <ToastContainer />
           <HomePage />
         </Suspense>
@@ -19,5 +20,4 @@ function App() {
     </>
   );
 }
-
 export default App;

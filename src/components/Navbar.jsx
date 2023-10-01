@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Mycontext } from "../context/ProductContext";
 
 const Navbar = () => {
+  const { state } = useContext(Mycontext);
   return (
     <div
       style={{
@@ -11,6 +13,7 @@ const Navbar = () => {
         backgroundColor: "black",
         width: "100%",
         color: "azure",
+        marginBottom: "2rem",
       }}>
       <div
         style={{
@@ -26,7 +29,7 @@ const Navbar = () => {
           <Link
             to={"/cart"}
             style={{ textDecoration: "none", color: "inherit" }}>
-            Cart
+            Cart:{state.cartlength}
           </Link>
         </div>
       </div>
