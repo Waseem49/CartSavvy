@@ -15,7 +15,7 @@ export const Product = (product) => {
       try {
         dispatch({ type: "ADDTOCART", payload: [product] });
         const response = await axios.post(
-          "https://mock-api-6jin.onrender.com/cart",
+          "https://mock-api-2fkx.onrender.com/cart",
           product
         );
         dispatch({ type: "CARTLENGTH", payload: ++state.cart.length });

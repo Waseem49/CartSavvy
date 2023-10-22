@@ -12,11 +12,11 @@ export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerfunc, initialState);
   const getData = async () => {
     try {
-      const res = await fetch("https://mock-api-6jin.onrender.com/products");
+      const res = await fetch("https://mock-api-2fkx.onrender.com/products");
       const json = await res.json();
       dispatch({ type: "FETCH_SUCCESS", payload: json });
       const cartitems = await axios.get(
-        "https://mock-api-6jin.onrender.com/cart"
+        "https://mock-api-2fkx.onrender.com/cart"
       );
       dispatch({ type: "ADDTOCART", payload: cartitems.data });
       dispatch({ type: "CARTLENGTH", payload: cartitems.data.length });
